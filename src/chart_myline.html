@@ -1,0 +1,48 @@
+<!-- https://stackoverflow.com/questions/32092676/using-chart-js-inside-node-js?rq=4 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>my chart please</title>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="width: 800px;">
+        <h1>'meu gráfico miltinho'</h1>
+        <canvas id="myChart"></canvas>
+
+    </div>
+
+    <script>
+        var data = {
+            labels:  {{chartLabel}},            
+            datasets: [{
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: {{chartData}}
+            }]
+            }
+       
+        var ctx = document.getElementById("myChart").getContext("2d");
+        const myNewChart = new Chart(ctx, {     // this is the string the constructor was registered at, ie Chart.controllers.MyType
+                                        type: 'line',
+                                        data: data,
+                                        options: {
+                                                legend: {display: false},
+                                                title: {
+                                                display: true,
+                                                text: "Consumo instantaneo de água"
+                                                    }
+                                                }                                  
+                                        });
+
+                                   
+
+    </script>
+</body>
+</html>
